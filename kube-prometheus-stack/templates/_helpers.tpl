@@ -16,10 +16,10 @@ The longest name that gets created adds and extra 37 characters, so truncation s
 {{- .Values.fullnameOverride | trunc 26 | trimSuffix "-" -}}
 {{- else -}}
 {{- $name := default .Chart.Name .Values.nameOverride -}}
-{{- if contains $name .Release.Name -}}
-{{- .Release.Name | trunc 26 | trimSuffix "-" -}}
-{{- else -}}
+{{- if and .Release.Name $name -}}
 {{- printf "%s-%s" .Release.Name $name | trunc 26 | trimSuffix "-" -}}
+{{- else -}}
+"default-name"
 {{- end -}}
 {{- end -}}
 {{- end -}}
