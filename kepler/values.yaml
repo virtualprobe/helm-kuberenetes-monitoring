@@ -87,7 +87,7 @@ serviceMonitor:
   interval: 30s
   scrapeTimeout: 5s
   labels: {
-    release: prometheus
+    release: monitoring
   }
   attachMetadata:
     node: false

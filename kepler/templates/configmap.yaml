@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: kepler-config
+  namespace: {{ .Release.Namespace }}
+data:
+  kepler.config: |
+    {
+      "sampling_interval": 1000,
+      "enable_bpf": true,
+      "enable_gpu": false
+    }

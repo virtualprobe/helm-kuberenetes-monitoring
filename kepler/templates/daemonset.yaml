@@ -75,6 +75,9 @@ spec:
           successThreshold: 1
           timeoutSeconds: 10
         volumeMounts:
+          - name: kepler-config
+            mountPath: /etc/kepler
+            readOnly: true
           - name: lib-modules
             mountPath: /lib/modules
           - name: tracing
@@ -95,6 +98,9 @@ spec:
           {{- toYaml . | nindent 12 }}
         {{- end }}
       volumes:
+        - name: kepler-config
+          configMap:
+            name: kepler-config
         - name: lib-modules
           hostPath:
             path: /lib/modules
