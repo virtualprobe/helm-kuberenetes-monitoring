@@ -82,8 +82,10 @@ spec:
             mountPath: /lib/modules
           - name: tracing
             mountPath: /sys
+            readOnly: true
           - name: proc
             mountPath: /proc
+            readOnly: true
           {{- if .Values.canMount.usrSrc }}
           - name: usr-src
             mountPath: /usr/src
