@@ -3205,10 +3205,10 @@ prometheus:
 
     ## Loadbalancer IP
     ## Only use if service.type is "LoadBalancer"
-    loadBalancerIP: ""
-    loadBalancerSourceRanges: [
-      "4.232.139.178/32"
-    ]
+    ## loadBalancerIP: ""
+    ## loadBalancerSourceRanges: [
+    ##   "4.232.139.178/32"
+    ## ]
 
     ## Denotes if this Service desires to route external traffic to node-local or cluster-wide endpoints
     ##
@@ -3216,7 +3216,7 @@ prometheus:
 
     ## Service type
     ##
-    type: LoadBalancer
+    type: NodePort
 
     ## Additional ports to open for Prometheus service
     ##
