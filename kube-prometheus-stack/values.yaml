@@ -3174,7 +3174,9 @@ prometheus:
   ## Configuration for Prometheus service
   ##
   service:
-    annotations: {}
+    annotations: 
+      service.beta.kubernetes.io/azure-load-balancer-internal: "true"
+      service.beta.kubernetes.io/azure-load-balancer-internal-subnet: "Subnet-Internal"  # Opzionale
     labels: {}
     clusterIP: ""
     ipDualStack:
@@ -3201,14 +3203,14 @@ prometheus:
     ## Port to expose on each node
     ## Only used if service.type is 'NodePort'
     ##
-    nodePort: 30090
+    # nodePort: 30090
 
     ## Loadbalancer IP
     ## Only use if service.type is "LoadBalancer"
     loadBalancerIP: ""
-    loadBalancerSourceRanges: [
-      "4.232.139.178/32"
-    ]
+    # loadBalancerSourceRanges: [
+    #   "4.232.139.178/32"
+    # ]
 
     ## Denotes if this Service desires to route external traffic to node-local or cluster-wide endpoints
     ##
